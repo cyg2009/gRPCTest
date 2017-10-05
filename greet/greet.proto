@@ -1,0 +1,23 @@
+syntax = "proto3";
+package greet; 
+
+import "google/api/annotations.proto";
+
+service Greeter {
+  rpc Greet (GreetRequest) returns (GreetReply) {
+    option (google.api.http) = {
+      post: "/v1/example/echo"
+      body: "*"
+    };
+  }
+}
+
+// The request message containing a json string
+message GreetRequest {
+  string message = 1;
+}
+
+// The response message 
+message GreetReply {
+  string message = 1;
+}
